@@ -1,0 +1,27 @@
+Product Table:-
+select *,
+case when 'Price'<='50' then 'Low' when 'Price'>'50' and 'Price'<'200' then 'Medium' else 'High' end as Price_Category
+from products
+
+Customers:
+use PortfolioProject_MarketingAnalytics;
+select customers.*,geography.City,geography.Country from customers
+left join geography on customers.GeographyID=geography.GeographyID
+
+
+Customer Review:-
+select ReviewID,CustomerID,ProductID,ReviewDate,Rating,REPLACE(ReviewText, '  ', ' ') as ReviewTextModified 
+from customer_reviews
+
+engagement data:
+select EngagementID,ContentID,UPPER(REPLACE(ContentType,'Socialmedia','Social Media')) as ContentType,Likes,FORMAT(EngagementDate,'MM.dd.yy') as EngagementDate,CampaignID,ProductID,LEFT(ViewsClicksCombined,CHARINDEX('-',ViewsClicksCombined)-1) AS No_Of_Views,
+RIGHT(ViewsClicksCombined,LEN(ViewsClicksCombined)-CHARINDEX('-',ViewsClicksCombined)) as No_Of_Clicks
+from engagement_data
+where ContentType!='Newsletter'
+
+Customer Journey:
+with cte as(select *,row_number() over(partition by JourneyID,CustomerID,ProductID,VisitDate,Stage,Action order by JourneyID) as rn
+from customer_journey)
+select *,ROUND(COALESCE(Duration,avg_duration),2) AS new_avg_duration from(select *,AVG(Duration) over(partition by VisitDate) as avg_duration from cte ) a
+where rn=1
+order by JourneyID
