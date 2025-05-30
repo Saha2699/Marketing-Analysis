@@ -33,7 +33,7 @@ It gives a overall representation of how the company and its products are perfor
 Conversion means how many percentage of people purchased a product after viewing.In this page you will get a detail analysis like 
 what is month,product wise conversion rate etc.
 
-3.Social Media
+3.Social Media:
 Here we analysed total views,likes,clicks by different products as well as by content type(ex-Blog,Social Media,Video)
 
 4.Customer_Review_Details:
