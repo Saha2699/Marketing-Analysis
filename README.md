@@ -43,7 +43,13 @@ charts used:-Bar chart,Line Chart,Pie Chart,Matrix,Table,Field,Slicers,Scatter C
 
 Dax Functions:Caleneder,Format,Avg,Count,SUM,Filter,Calculate
 
-Along with that i have also used Bookmarks and Field Parameters
+Along with that i have also used Bookmarks and Field Parameters.
+
+Conclusions:
+1.Conversion rate is decreasing every year,january has the highest conversion rate of 18.5%
+2.Most of the views is coming from Blogs(Content type) around 27.88%.
+3.Views is decreasing every month but "no of likes" and "no of clicks" remains constant which means users are interacting but they are not purchasing the product
+4.61% of reviews are positive but during initial months of the year the sentiments are negative. 
 
 
 
